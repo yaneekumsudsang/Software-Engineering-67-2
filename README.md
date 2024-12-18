@@ -1,4 +1,4 @@
-# Software Engineering 67/2
+# mini project version 0
 
 จัดทำโดย
 นางสาวญาณี คำสุดแสง
