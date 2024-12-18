@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.pk %}Edit Product{% else %}Add New Product{% endif %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 h-screen flex items-center justify-center">
+{% load custom_filters %}
+    <div class="w-80 bg-white p-6 rounded shadow-md">
+        <h1 class="text-3xl font-bold text-[#164863] mb-4 text-center">
+            {% if form.instance.pk %}Edit Product{% else %}เพิ่มสินค้า{% endif %}
+        </h1>
+        <form method="post" class="">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label class="block text-[#164863] font-bold">ชื่อสินค้า:</label>
+                {{ form.name|add_class:"border rounded w-full p-2" }}
+            </div>
+            <div class="mb-4">
+                <label class="block text-[#164863] font-bold">จำนวน:</label>
+                {{ form.quantity|add_class:"border rounded w-full p-2" }}
+            </div>
+            <div class="mb-4">
+                <label class="block text-[#164863] font-bold">ราคาต่อหน่วย:</label>
+                {{ form.price_per_unit|add_class:"border rounded w-full p-2" }}
+            </div>
+            <button type="submit" class="bg-[#164863] font-bold text-[#DDF2FD] px-4 py-2 mt-4 rounded hover:bg-[#DDF2FD] hover:text-[#164863] w-full">
+                บันทึกรายการ
+            </button>
+        </form>
+        <a href="/" class="text-[#164863] hover:underline mt-4 block text-center">กลับไปหน้าแรก</a>
+    </div>
+</body>
+</html>
